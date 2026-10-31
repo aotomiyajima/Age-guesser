@@ -8,20 +8,48 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <main>
-    <h1>あなたの年齢を当てます</h1>
-    <p>0〜120歳の年齢を思い浮かべてください。</p>
-
-    <p id="question">あなたは60歳ですか？</p>
-
-    <div>
-      <button id="lower">もっと下</button>
-      <button id="correct">正解！</button>
-      <button id="higher">もっと上</button>
+  <div class="game-layout">
+    <div id="character" class="character" data-state="idle" aria-hidden="true">
+      <svg viewBox="0 0 280 250" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <!-- 記号は状態に応じてCSSで切り替える -->
+        <g class="character-symbol symbol-question" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round">
+          <path d="M128 20 C128 3 154 3 154 20 C154 31 140 32 140 42" />
+          <circle cx="140" cy="55" r="4" fill="currentColor" stroke="none" />
+        </g>
+        <g class="character-symbol symbol-bulb" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M130 44 C130 35 122 33 122 23 A18 18 0 0 1 158 23 C158 33 150 35 150 44 Z" />
+          <path d="M132 51 H148 M136 57 H144 M140 44 V30 M134 25 L140 31 L146 25" />
+          <path d="M110 23 H104 M176 23 H170 M117 4 L112 0 M163 4 L168 0 M116 42 L111 47 M164 42 L169 47" />
+        </g>
+        <g class="character-symbol symbol-exclamation" fill="currentColor">
+          <rect x="136" y="7" width="8" height="34" rx="4" />
+          <circle cx="140" cy="54" r="5" />
+        </g>
+        <!-- 肩・首・丸い頭。顔のパーツは付けない -->
+        <path fill="currentColor" d="M48 238 C48 194 86 176 140 176 C194 176 232 194 232 238 Z" />
+        <rect fill="currentColor" x="122" y="150" width="36" height="46" rx="12" />
+        <g class="character-head" fill="currentColor">
+          <circle cx="140" cy="126" r="49" />
+        </g>
+      </svg>
     </div>
 
-    <p id="result"></p>
-    <button id="restart">もう一度遊ぶ</button>
-  </main>
+    <main>
+      <h1>あなたの年齢を7ターン以内で当てましょう</h1>
+
+      <p id="question" aria-live="polite">自分の年齢を思い浮かべよう</p>
+
+      <button id="start">ゲームを始める</button>
+
+      <div class="answer-buttons">
+        <button id="lower" disabled>もっと下</button>
+        <button id="correct" disabled>正解</button>
+        <button id="higher" disabled>もっと上</button>
+      </div>
+
+      <p id="result" aria-live="polite"></p>
+      <button id="restart" hidden>もう一度遊ぶ</button>
+    </main>
+  </div>
 </body>
 </html>
