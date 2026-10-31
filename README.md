@@ -20,6 +20,7 @@
 ## 実行方法
 
 index.htmlをブラウザで開くと遊べます。
+https://age-guesser.pages.dev/ここでも公開しました
 
 ## 制作目的
 
